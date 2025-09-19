@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { createApp } from 'vue'
 import { VueMeteor } from 'vue-meteor-tracker'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 import './main.css'
 import App from './App.vue'

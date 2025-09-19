@@ -1,29 +1,25 @@
 <template>
   <div>
-    name <input type="text" v-model="name"><br>
-    price <input type="text" v-model="price"><br>
-    quantity <input type="text" v-model="qty"><br>
-    amount: {{amount}} <br>
-    <button @click="handleCompute">Submit</button>
-
-
+    <h5>this is a root</h5>
+    <my-button-vue :title="titleT"/><br>
+    <MyButtonVue :title="titleT"/>
   </div>
 </template>
 
 <script>
+import MyButtonVue from './components/MyButton.vue'
+
 export default {
 
-data(){
-  return{
-    name:null,
-    price:0,
-    qty:0,
-    amount:0
-  }
-},
-computed:{
-  
-}
+  data(){
+    return{
+      titleT:"On Submit",
+    }
+  },
+  components:{
+    MyButtonVue
+  },
+
 }
 </script>
 
