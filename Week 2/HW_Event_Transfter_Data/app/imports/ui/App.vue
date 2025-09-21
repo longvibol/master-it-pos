@@ -2,7 +2,7 @@
   <div>
     <h1>This is from SignUp</h1>
     <ComponentSignUp @submit="handleSignUp" />
-    <MyTableVue :usersList="users" />
+    <MyTableVue :users="users" />
     
   </div>
 </template>
