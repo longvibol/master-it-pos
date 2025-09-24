@@ -1,6 +1,6 @@
 <template>
   <div class="my-table">
-
+    <form>
       <label for="username">Username:</label>
       <input
         type="text"
@@ -56,9 +56,9 @@
       <label for="hangout">Hangout</label><br /><br />
 
       <div class="button-group">
-        <button @click="handleSignUp">Sign Up</button>
+        <button @click.prevent="handleSignUp">Sign Up</button>
       </div>
-
+    </form>
   </div>
 </template>
 

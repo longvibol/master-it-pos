@@ -29,6 +29,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/meteor": "^2.9.7",
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/cli-plugin-router": "~5.0.0",
     "meteor-vite": "^3.2.1",
     "tailwindcss": "^4.1.11",
     "vite": "^6.0.11"
