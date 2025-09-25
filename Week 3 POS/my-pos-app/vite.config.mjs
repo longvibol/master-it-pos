@@ -24,6 +24,10 @@ export default defineConfig({
     }),
      Components({
       resolvers: [QuasarResolver()],
+      dirs: ['src/components'], // 👈 auto-import your own components here
+      extensions: ['vue'],
+      deep: true,
+      dts: true,
     }),
   ],
   optimizeDeps: {

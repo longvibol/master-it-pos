@@ -1,7 +1,24 @@
+https://quasar.dev/layout/layout
+
+>> https://quasar.dev/layout-builder
+
+
+------------------------------------------------
+
+1. chose layout what we want then export to copy the code 
+
+2. Goto App.vue and page the code 
+
+3. Create Layout Drawer : https://quasar.dev/layout/drawer
+
+4. materialicon : to get icon : https://fonts.google.com/icons
+
+
+
 <template>
   <q-layout view="hHh LpR fFf">
     <!-- Header -->
-    <q-header elevated class="bg-primary text-white" >
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
