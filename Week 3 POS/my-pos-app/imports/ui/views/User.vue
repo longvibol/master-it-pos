@@ -10,7 +10,6 @@
       <q-card class="bg-white">
         <q-bar>
           <q-space />
-
           <q-btn
             dense
             flat
@@ -23,7 +22,7 @@
           </q-btn>
         </q-bar>
 
-        <user-form @submit="handleSubmit" />
+        <user-form @batch-import="handleBatchImport" @submit="handleSubmit" />
       </q-card>
     </q-dialog>
 
@@ -78,27 +77,68 @@ export default {
   },
 
   methods: {
-    handleSubmit(doc) {
-      this.users.push(doc);
-      this.dialog = false;
-    },
     handleAdd() {
       this.dialog = true;
     },
+
     handleDelete(id) {
-      console.log("Page delete", id);
+      this.users = this.users.filter((user) => user._id !== id);
+      this.$q.notify({
+        type: "negative",
+        message: `User deleted.`,
+        timeout: 3000,
+        position: "top",
+      });
     },
+
     handleEdit(user) {
-      console.log("Page edit", user);
+      console.log("Edit user:", user);
+      // You can pass this user to the form for editing later
     },
+
+    handleBatchImport({ users, source }) {
+      const enriched = users.map((user, index) => ({
+        ...user,
+        _id: `imported-${Date.now()}-${index}`,
+      }));
+      this.users = [...this.users, ...enriched];
+
+      this.$q.notify({
+        type: "info",
+        message:
+          source === "template"
+            ? `${enriched.length} users imported by template.`
+            : `${enriched.length} users imported.`,
+        timeout: 4000,
+        position: "top",
+      });
+    },
+
+    handleSubmit({ doc, source }) {
+      const newUser = {
+        ...doc,
+        _id: `manual-${Date.now()}`,
+      };
+      this.users.push(newUser);
+      // this.dialog = false;
+
+      this.$q.notify({
+        type: "positive",
+        message:
+          source === "manual"
+            ? `Submit success! Username: ${doc.username}`
+            : `Submit by template successful! Username: ${doc.username}`,
+        timeout: 3000,
+        position: "top",
+      });
+    },
+
     handleKeydown(event) {
       if (event.key === "Escape" && this.dialog) {
         this.dialog = false;
       }
-
-      // Ctrl + A shortcut
       if (event.ctrlKey && event.key.toLowerCase() === "a") {
-        event.preventDefault(); // prevent default browser select-all
+        event.preventDefault();
         this.handleAdd();
       }
     },

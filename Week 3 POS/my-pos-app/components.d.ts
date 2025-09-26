@@ -11,7 +11,6 @@ declare module 'vue' {
     QBar: typeof import('quasar')['QBar']
     QBtn: typeof import('quasar')['QBtn']
     QCard: typeof import('quasar')['QCard']
-    QCardSection: typeof import('quasar')['QCardSection']
     QCheckbox: typeof import('quasar')['QCheckbox']
     QDialog: typeof import('quasar')['QDialog']
     QDrawer: typeof import('quasar')['QDrawer']
@@ -31,6 +30,7 @@ declare module 'vue' {
     QToolbar: typeof import('quasar')['QToolbar']
     QToolbarTitle: typeof import('quasar')['QToolbarTitle']
     QTooltip: typeof import('quasar')['QTooltip']
+    QUploader: typeof import('quasar')['QUploader']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
